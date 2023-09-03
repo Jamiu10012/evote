@@ -36,7 +36,9 @@ const Login = () => {
                       </Link>
                     </div>
                     <div className="lo-btn join-us-btn ">
-                      <button className="l-btn">LOG IN</button>
+                      <Link to={"/dashboard"}>
+                        <button className="l-btn">LOG IN</button>
+                      </Link>
                     </div>
                   </form>
                   <div className="already" id="dont">
