@@ -11,19 +11,19 @@ const data = [
   },
   {
     label: "About",
-    to: "/jobslisting",
+    to: "/about",
   },
   {
     label: "Manifesto",
-    to: "/blogcategories",
+    to: "/manifesto",
   },
   {
     label: "Vote",
-    to: "/resumebuilder",
+    to: "/vote",
   },
   {
     label: "Contact",
-    to: "/seekerdashboard",
+    to: "/contact",
   },
 ];
 const Navbar = () => {
