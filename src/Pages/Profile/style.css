@@ -204,4 +204,8 @@ h2 {
   .nec {
     font-size: 14px;
   }
+  .inp-verify {
+    font-size: 14px;
+    border-radius: 0;
+  }
 }
