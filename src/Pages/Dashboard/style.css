@@ -1,0 +1,57 @@
+.dash-board-coantainer {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding: 0 9em;
+}
+.main-das-container {
+  padding: 10px 30px;
+}
+.acc-t {
+  font-size: 16px;
+  font-weight: 500;
+}
+.id-name {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  color: #96cadb;
+  margin-top: 5px;
+}
+.imp-box {
+  background: #fff;
+  color: #02384b;
+  padding: 20px;
+  border-radius: 8px;
+  height: 350px;
+  margin-top: 10px;
+}
+.important {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+.sim-inm {
+  font-size: 16px;
+}
+.prov {
+  color: #02384b;
+  font-weight: 600;
+}
+@media only screen and (max-width: 1300px) {
+  .dash-board-coantainer {
+    padding: 0 2em;
+  }
+}
+@media only screen and (max-width: 940px) {
+  .dash-board-coantainer {
+    padding: 0 2em;
+  }
+  .second-side {
+    width: 100%;
+  }
+  .main-das-container {
+    padding: 10px;
+  }
+}
