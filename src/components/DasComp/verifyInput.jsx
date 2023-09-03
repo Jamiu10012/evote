@@ -14,7 +14,7 @@ const VerifyInput = ({ handleIsDoneToggle }) => {
       <form action="">
         <div className="inp-conn">
           <input
-            type="text"
+            type="tel"
             className="inp-verify"
             placeholder="Verification Code"
             maxLength={6}
