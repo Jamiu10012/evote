@@ -5,6 +5,10 @@ import Manifesto from "./Pages/Manifesto";
 import Profile from "./Pages/Profile";
 import SignUp from "./Pages/Signup";
 import { Routes, Route } from "react-router-dom";
+import Vote from "./Pages/Vote";
+import AdminDash from "./Pages/Admin";
+import CreatePolls from "./Pages/CreatePoll";
+import Result from "./Pages/Result";
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/manifesto" element={<Manifesto />} />
+        <Route path="/vote" element={<Vote />} />
+        <Route path="/admindash" element={<AdminDash />} />
+        <Route path="/createpoll" element={<CreatePolls />} />
+        <Route path="/result" element={<Result />} />
       </Routes>
       {/* <Footer /> */}
     </div>

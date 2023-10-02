@@ -17,13 +17,14 @@
   justify-content: space-between;
   color: #96cadb;
   margin-top: 5px;
+  align-items: center;
 }
 .imp-box {
   background: #fff;
   color: #02384b;
   padding: 20px;
   border-radius: 8px;
-  height: 350px;
+  min-height: 350px;
   margin-top: 10px;
 }
 .important {
@@ -38,6 +39,10 @@
 .prov {
   color: #02384b;
   font-weight: 600;
+}
+.col-bx{
+  display: flex;
+  gap: 5px;
 }
 @media only screen and (max-width: 1300px) {
   .dash-board-coantainer {
