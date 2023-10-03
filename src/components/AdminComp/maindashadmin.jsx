@@ -11,12 +11,12 @@ const AdminMainDash = () => {
       <div className="imp-box">
         <div className="important">IMPORTANT NOTICE</div>
         <div className="col-bx">
-        <div className="sim-inm red">You are yet to create new post. </div>
-        <div className="sim-inm">
-          <Link to={"/profile"} className="prov">
-          click here to create!  
-          </Link>
-        </div>
+          <div className="sim-inm red">You are yet to create new post. </div>
+          <div className="sim-inm">
+            <Link to={"/createpoll"} className="prov">
+              click here to create!
+            </Link>
+          </div>
         </div>
       </div>
     </div>
