@@ -9,6 +9,7 @@ import Vote from "./Pages/Vote";
 import AdminDash from "./Pages/Admin";
 import CreatePolls from "./Pages/CreatePoll";
 import Result from "./Pages/Result";
+import ResultOut from "./Pages/ResultOut";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admindash" element={<AdminDash />} />
         <Route path="/createpoll" element={<CreatePolls />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/resultout" element={<ResultOut />} />
       </Routes>
       {/* <Footer /> */}
     </div>

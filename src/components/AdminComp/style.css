@@ -5,6 +5,7 @@
 .polls {
   padding: 0;
 }
+
 .creat-ead {
   font-size: 20px;
   font-weight: 600;
@@ -22,6 +23,10 @@
   background: #012532;
   padding: 20px;
   border-radius: 8px;
+}
+.cnf {
+  background: #fff;
+  color: #012532;
 }
 .main-pos {
   font-size: 17px;
@@ -63,50 +68,83 @@
   align-items: center;
   padding: 5px 10px;
 }
-.create-poll-btn{
-    border: none;
-    background: #0086B6;
-    width: 120px;
-    height: 40px;
-    color: #fff;
-    border-radius: 10px;
+.create-poll-btn {
+  border: none;
+  background: #0086b6;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  border-radius: 10px;
 }
-.create-bx{
-    display: flex;
-    justify-content: right;
-    margin-top: 10px;
+.create-bx {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
 }
-.bbbb{
-    margin-bottom: 10px;
+.bbbb {
+  margin-bottom: 10px;
 }
-.select-inp{
+.select-inp {
   width: 100%;
   height: 40px;
   border: 2px solid #001820;
   padding: 0 20px;
-   outline: none;
-   margin-bottom: 20px;
+  outline: none;
+  margin-bottom: 20px;
 }
-.inp-period
-{
-   width: 100%;
-   border: none;
-   border-bottom: 2px solid #001820;
-   margin-top: 10px;
-   height: 30px;
-   padding: 0 20px;
-   outline: none;
+.inp-period {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #001820;
+  margin-top: 10px;
+  height: 30px;
+  padding: 0 20px;
+  outline: none;
 }
-.main-tos{
+.main-tos {
   font-size: 15px;
   margin-top: 10px;
 }
-.cen{
+.cen {
   margin-top: 30px;
   justify-content: center;
 }
+.ters {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 60px;
+}
+.rest-cand {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.cand-name {
+  font-size: 18px;
+  font-weight: 400;
+}
+.acc-vote {
+  font-size: 16px;
+  font-weight: 500;
+}
+@media only screen and (max-width: 600px) {
+  .rest-cand {
+    width: 100%;
+  }
+  .cand-name {
+    font-size: 14px;
+  }
+  .acc-vote {
+    font-size: 12px;
+  }
+  .ters {
+    font-size: 16px;
+  }
+}
+
 @media only screen and (max-width: 540px) {
-    .create-poll-container {
-        padding: 20px;
-      }
+  .create-poll-container {
+    padding: 20px;
+  }
 }

@@ -1,9 +1,9 @@
 import AdminSideBar from "../../components/AdminComp/AdminSidebar";
-import MainResult from "../../components/AdminComp/Result";
+import MainResultOut from "../../components/AdminComp/Resultout";
 import TopNav from "../../components/DasComp/TopNav";
 import DashLayout from "../../components/Layout/DashLayout";
 
-const Result = () => {
+const ResultOut = () => {
   return (
     <DashLayout>
       <div className="dash-board-coantainer">
@@ -12,7 +12,7 @@ const Result = () => {
           <div className="second-side">
             <TopNav />
             <div className="main-das-container polls">
-              <MainResult />
+              <MainResultOut />
             </div>
           </div>
         </div>
@@ -21,4 +21,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default ResultOut;
