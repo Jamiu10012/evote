@@ -25,7 +25,7 @@ const data = [
   {
     label: "Vote",
     icon: <MdHowToVote />,
-    to: "/resumebuilder",
+    to: "/vote",
   },
   {
     label: "Manifesto",
