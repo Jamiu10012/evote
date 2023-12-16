@@ -5,7 +5,7 @@
   position: absolute;
   color: rgb(121, 121, 121);
   font-size: 16px;
-  top: 30%;
+  top: 60%;
   left: 2%;
 }
 .cen {
@@ -16,6 +16,6 @@
   position: absolute;
   color: rgb(121, 121, 121);
   font-size: 15px;
-  top: 30%;
+  top: 60%;
   right: 2%;
 }

@@ -6,6 +6,8 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
   const [factorToggle, setFactorToggle] = useState(false);
   const [verifyToggle, setVerifyToggle] = useState(false);
   const [isDoneToggle, setIsDoneToggle] = useState(false);
+  const token = localStorage.getItem("authToken");
+
   const handleFactorToggle = () => {
     setFactorToggle(true);
   };
@@ -18,6 +20,30 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
   // const handleCloseFactorToggle = () => {
   //   setFactorToggle(false);
   // };
+  const backendURL = "https://evote-fq0h.onrender.com/evote/api/v1";
+  // const backendURL = "http://localhost:8080";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${backendURL}/auth/email-verification`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        handleFactorToggle();
+      }
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
+
   return (
     <div className="info-right">
       <h1 className="ead">Two-Factor Authentication</h1>
@@ -30,25 +56,7 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
 
             {factorToggle ? (
               <>
-                {verifyToggle ? (
-                  <VerifyInput handleIsDoneToggle={handleIsDoneToggle} />
-                ) : (
-                  <>
-                    <div className="sim-inm">
-                      Please type this code into your authentication app
-                    </div>
-                    <div className="aut-code-con">
-                      <div className="aut-code">LKYU LKYU LKYU LKYU</div>
-                      <div className="aut-code">LKYU LKYU LKYU LKYU</div>
-                    </div>
-
-                    <div className="goto-btn">
-                      <button className="go-btn" onClick={handleVerifyToggle}>
-                        Verify
-                      </button>
-                    </div>
-                  </>
-                )}
+                <VerifyInput handleIsDoneToggle={handleIsDoneToggle} />
               </>
             ) : (
               <>
@@ -58,7 +66,7 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
                   authentication account to have it enabled
                 </div>
                 <div className="goto-btn">
-                  <button className="go-btn" onClick={handleFactorToggle}>
+                  <button className="go-btn" onClick={handleSubmit}>
                     Get Code
                   </button>
                 </div>
@@ -72,3 +80,42 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
 };
 
 export default TwoFactor;
+
+//  {
+//    factorToggle ? (
+//      <>
+//        {verifyToggle ? (
+//          <VerifyInput handleIsDoneToggle={handleIsDoneToggle} />
+//        ) : (
+//          <>
+//            <div className="sim-inm">
+//              Please type this code into your authentication app
+//            </div>
+//            <div className="aut-code-con">
+//              <div className="aut-code">LKYU LKYU LKYU LKYU</div>
+//              <div className="aut-code">LKYU LKYU LKYU LKYU</div>
+//            </div>
+
+//            <div className="goto-btn">
+//              <button className="go-btn" onClick={handleVerifyToggle}>
+//                Verify
+//              </button>
+//            </div>
+//          </>
+//        )}
+//      </>
+//    ) : (
+//      <>
+//        <h1 className="ead">Set Up Manually</h1>
+//        <div className="sim-inm ">
+//          Click on this to get a code that will you will input into your
+//          authentication account to have it enabled
+//        </div>
+//        <div className="goto-btn">
+//          <button className="go-btn" onClick={handleFactorToggle}>
+//            Get Code
+//          </button>
+//        </div>
+//      </>
+//    );
+//  }

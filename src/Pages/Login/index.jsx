@@ -1,7 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import InitLayout from "../../components/Layout/InitLayout";
+import { useState } from "react";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [data, setData] = useState("");
+  const navigate = useNavigate();
+
+  const backendURL = "https://evote-fq0h.onrender.com/evote/api/v1";
+  // const backendURL = "http://localhost:8080";
+
+  console.log(email, password);
+  const handleSignin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${backendURL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        setData("Login Successfully");
+        localStorage.setItem("authToken", responseData.accessToken);
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      console.log("Error fetching data:", error);
+      setData("Something went wrong");
+    }
+  };
   return (
     <>
       <InitLayout>
@@ -17,14 +50,23 @@ const Login = () => {
               <div className="right-side">
                 <div className="login-con">
                   <h2 className="back">WELCOME BACK!</h2>
-                  <form action="">
+                  <div className="det-ls">{data}</div>
+                  <form action="" onSubmit={handleSignin}>
                     <div className="lab-inp">
-                      <label htmlFor="">EMAIL or PHONE NUMBER</label>
-                      <input type="text" className="inp" />
+                      <label htmlFor="">EMAIL</label>
+                      <input
+                        type="text"
+                        className="inp"
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                     </div>
                     <div className="lab-inp">
                       <label htmlFor="">Password</label>
-                      <input type="password" className="inp" />
+                      <input
+                        type="password"
+                        className="inp"
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
                     </div>
                     <div className="fo-rem">
                       <div className="rember-inp">
@@ -36,14 +78,18 @@ const Login = () => {
                       </Link>
                     </div>
                     <div className="lo-btn join-us-btn ">
-                      <Link to={"/dashboard"}>
-                        <button className="l-btn">LOG IN</button>
-                      </Link>
+                      {/* <Link to={"/dashboard"}> */}
+                      <button className="l-btn" type="submit">
+                        LOG IN
+                      </button>
+                      {/* </Link> */}
                     </div>
                   </form>
                   <div className="already" id="dont">
                     Don’t have an account ?{" "}
-                    <Link className="alr-link ">Sign Up</Link>
+                    <Link to={"/signup"} className="alr-link ">
+                      Sign Up
+                    </Link>
                   </div>
                 </div>
               </div>

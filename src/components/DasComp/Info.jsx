@@ -4,6 +4,7 @@ const Info = ({
   handleFactorToggle,
   factorToggle,
   handleCloseFactorToggle,
+  data,
 }) => {
   return (
     <>
@@ -15,33 +16,37 @@ const Info = ({
           <div className="info-details">
             <div className="det-con">
               <div className="n-text">Name</div>
-              <div className="n-text">Makinde Oluwapelumi</div>
+              <div className="n-text">{data?.user?.fullname}</div>
             </div>
             <div className="det-con">
               <div className="n-text">Username</div>
-              <div className="n-text cen">Daddy Yo</div>
+              <div className="n-text cen">{data?.user?.username}</div>
             </div>
             <div className="det-con">
               <div className="n-text">Birthday</div>
-              <div className="n-text cen">6/10/1983</div>
+              <div className="n-text cen">{data?.user?.dob}</div>
             </div>
             <div className="det-con">
               <div className="n-text">Mobile Number</div>
-              <div className="n-text ">080966343535</div>
+              <div className="n-text ">{data?.user?.phonenumber}</div>
             </div>
             <div className="det-con">
               <div className="n-text">Email Address</div>
-              <div className="n-text "> sample@mail.com</div>
+              <div className="n-text ">{data?.user?.email}</div>
             </div>
             <div className="det-con">
               <div className="n-text">Password</div>
               <div className="n-text cen">*********</div>
             </div>
             <div className="det-con">
-              <div className="n-text">Two-Factor Authentication</div>
-              <div className="n-text red cen" onClick={handleFactorToggle}>
-                !!!
-              </div>
+              <div className="n-text">One time password</div>
+              {data?.user?.eligibility === "Allowed" ? (
+                <div className="n-text cen">Verified</div>
+              ) : (
+                <div className="n-text red cen" onClick={handleFactorToggle}>
+                  !!!
+                </div>
+              )}
             </div>
             <div className="det-con">
               <div className="n-text">Biometrics</div>
@@ -49,7 +54,7 @@ const Info = ({
             </div>
             <div className="det-con">
               <div className="n-text">Eligibility</div>
-              <div className="n-text">Not-Allowed</div>
+              <div className="n-text">{data?.user?.eligibility}</div>
             </div>
             <div className="det-con">
               <div className="n-text">Privacy Policy</div>

@@ -41,7 +41,7 @@ const Navbar = () => {
         <nav className="nav">
           <ul className={`nav-ul ${toggleIcon ? "active" : ""}`}>
             {data.map((item, key) => (
-              <li className="nav-li">
+              <li className="nav-li" key={key}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "active-link" : "navbar_links"

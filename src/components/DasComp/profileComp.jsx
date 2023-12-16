@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Info from "./Info";
 
-const ProfileMain = () => {
+const ProfileMain = ({ data }) => {
   const [factorToggle, setFactorToggle] = useState(false);
+
   const handleFactorToggle = () => {
     setFactorToggle(true);
   };
@@ -35,6 +36,7 @@ const ProfileMain = () => {
               handleFactorToggle={handleFactorToggle}
               factorToggle={factorToggle}
               handleCloseFactorToggle={handleCloseFactorToggle}
+              data={data}
             />
           </div>
         </div>

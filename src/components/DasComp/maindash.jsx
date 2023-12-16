@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const MainDash = () => {
+const MainDash = ({ data }) => {
   return (
     <div className="maindas-box">
       <div className="acc-t">Account Dashboard</div>
       <div className="id-name">
         <div className="id-text">ID 0001</div>
-        <div className="nam-tst">Makinde Oluwapelumi</div>
+        <div className="nam-tst">{data?.user?.fullname}</div>
       </div>
       <div className="imp-box">
         <div className="important">IMPORTANT NOTICE</div>

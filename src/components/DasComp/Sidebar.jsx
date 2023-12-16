@@ -47,6 +47,7 @@ const SideBar = ({ toggleIcon }) => {
                 isActive ? "active-bar item-eac" : "item-eac"
               }
               to={item.to}
+              key={key}
             >
               {item.icon}
               {item.label}

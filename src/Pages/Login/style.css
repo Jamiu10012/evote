@@ -59,9 +59,14 @@
   border-radius: 8px;
   height: 40px;
   margin: 15px 0;
+  cursor: pointer;
 }
 #dont {
   text-align: left;
+}
+.det-ls {
+  font-size: 14px;
+  text-align: center;
 }
 @media only screen and (max-width: 940px) {
   .login-con {

@@ -17,6 +17,15 @@ const MainCreatePoll = () => {
           />
         </div>
 
+        <div className="main-pos">Description</div>
+        <div className="post-inp-cont">
+          <input
+            type="text"
+            placeholder="Input the description"
+            className="position-container"
+          />
+        </div>
+
         <div className="add-contes">Add Contestants</div>
         <div className="particip-name">
           <input
