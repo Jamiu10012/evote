@@ -16,12 +16,13 @@ const data = [
     icon: <FaPoll />,
     to: "/createpoll",
   },
-  
+
   {
     label: "Manifesto",
     icon: <TiDocumentText />,
     to: "/manifesto",
-  },{
+  },
+  {
     label: "Results",
     icon: <HiOutlinePresentationChartBar />,
     to: "/result",
@@ -41,6 +42,7 @@ const AdminSideBar = ({ toggleIcon }) => {
                 isActive ? "active-bar item-eac" : "item-eac"
               }
               to={item.to}
+              key={key}
             >
               {item.icon}
               {item.label}

@@ -128,6 +128,17 @@
   font-size: 16px;
   font-weight: 500;
 }
+.box-elections {
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+.col-bx {
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 600px) {
   .rest-cand {
     width: 100%;
