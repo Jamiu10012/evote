@@ -5,6 +5,8 @@ import { GoPersonFill } from "react-icons/go";
 import "./style.css";
 import InitLayout from "../../components/Layout/InitLayout";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SignUp = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -19,12 +21,36 @@ const SignUp = () => {
   // const backendURL = "http://localhost:8080";
   console.log(fullName, email, password);
 
+  const isPasswordValid = (password) => {
+    // Password must be at least 8 characters long
+    if (password.length < 8) {
+      return false;
+    }
+
+    const letterRegex = /[a-zA-Z]/;
+    const numberRegex = /[0-9]/;
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+
+    return (
+      letterRegex.test(password) &&
+      numberRegex.test(password) &&
+      specialCharRegex.test(password)
+    );
+  };
+
   const handleSignUp = async (e) => {
     console.log("just");
     e.preventDefault();
+    if (!isPasswordValid(password)) {
+      toast.error(
+        "Password must be at least 8 characters and contain at least one letter, one number, and one special character"
+      );
+      return;
+    }
     if (password !== confirmPassword) {
       // Passwords do not match, handle accordingly (show error, etc.)
-      console.log("Passwords do not match");
+      // console.log("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -36,17 +62,21 @@ const SignUp = () => {
         },
         body: JSON.stringify({ fullname: fullName, email, password }),
       });
-      console.log("just2");
 
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData);
+        toast.success(responseData.message);
         setData("Register Successfully");
-        navigate("/login");
+        // navigate("/login");
+        const timeoutId = setTimeout(() => {
+          window.location.href = "/login";
+        }, 3500);
       }
     } catch (error) {
       console.log("Error fetching data:", error);
       setData("Something went wrong");
+      toast.error("Something went wrong");
     }
   };
 
@@ -116,6 +146,10 @@ const SignUp = () => {
                         )}
                       </div>
                     </div>
+                    <span className="text-[10px] mt-[-10px] text-red-400">
+                      * Password must be at least 8 characters and contain at
+                      least one letter, one number, and one special character
+                    </span>
                     <div className="lab-inp rel-inp">
                       <div className="left-icon">
                         <MdLock />
@@ -144,6 +178,7 @@ const SignUp = () => {
                         CREATE ACCOUNT
                       </button>
                     </div>
+                    <ToastContainer />
                   </form>
                   <div className="already" id="dont">
                     Already have account ?{" "}

@@ -18,11 +18,16 @@ const Home = () => {
                 <img src="/images/right.png" alt="" />
               </div>
             </div>
-            <div className="join-us-btn">
-              <button className="jon-btn">JOIN US</button>
-            </div>
+            <Link to={"/signup"} className="alr-link">
+              <div className="join-us-btn">
+                <button className="jon-btn">JOIN US</button>
+              </div>
+            </Link>
             <div className="already">
-              Already have an account ? <Link className="alr-link">Log In</Link>{" "}
+              Already have an account ?{" "}
+              <Link className="alr-link" to={"/login"}>
+                Log In
+              </Link>{" "}
             </div>
           </div>
         </div>{" "}

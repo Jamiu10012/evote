@@ -2,6 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import InitLayout from "../../components/Layout/InitLayout";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,12 +30,14 @@ const Login = () => {
         const responseData = await response.json();
         console.log(responseData);
         setData("Login Successfully");
+        toast.success("Login Successfully!!!");
         localStorage.setItem("authToken", responseData.accessToken);
         navigate("/dashboard");
       }
     } catch (error) {
       console.log("Error fetching data:", error);
       setData("Something went wrong");
+      toast.error(error);
     }
   };
   return (
@@ -84,6 +89,7 @@ const Login = () => {
                       </button>
                       {/* </Link> */}
                     </div>
+                    <ToastContainer />
                   </form>
                   <div className="already" id="dont">
                     Don’t have an account ?{" "}

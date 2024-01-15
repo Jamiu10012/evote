@@ -1,6 +1,8 @@
 import { useState } from "react";
 import VerifyInput from "./verifyInput";
 import Done from "./Done";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TwoFactor = ({ handleCloseFactorToggle }) => {
   const [factorToggle, setFactorToggle] = useState(false);
@@ -37,6 +39,7 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData);
+        toast.success(responseData.message);
         handleFactorToggle();
       }
     } catch (error) {
@@ -75,6 +78,7 @@ const TwoFactor = ({ handleCloseFactorToggle }) => {
           </>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };
