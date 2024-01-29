@@ -11,6 +11,7 @@ import CreatePolls from "./Pages/CreatePoll";
 import Result from "./Pages/Result";
 import ResultOut from "./Pages/ResultOut";
 import Election from "./Pages/Election";
+import AllPollMain from "./Pages/Election/AllPollMain";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/vote" element={<Vote />} />
         <Route path="/admindash" element={<AdminDash />} />
         <Route path="/election" element={<Election />} />
+        <Route path="/allpoll" element={<AllPollMain />} />
         <Route path="/createpoll" element={<CreatePolls />} />
         <Route path="/result" element={<Result />} />
         <Route path="/resultout" element={<ResultOut />} />

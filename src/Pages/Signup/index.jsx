@@ -69,7 +69,7 @@ const SignUp = () => {
         toast.success(responseData.message);
         setData("Register Successfully");
         // navigate("/login");
-        const timeoutId = setTimeout(() => {
+        setTimeout(() => {
           window.location.href = "/login";
         }, 3500);
       }

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 import InitLayout from "../../components/Layout/InitLayout";
 import { useState } from "react";
@@ -9,7 +9,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState("");
-  const navigate = useNavigate();
 
   const backendURL = "https://evote-fq0h.onrender.com/evote/api/v1";
   // const backendURL = "http://localhost:8080";
@@ -32,7 +31,9 @@ const Login = () => {
         setData("Login Successfully");
         toast.success("Login Successfully!!!");
         localStorage.setItem("authToken", responseData.accessToken);
-        navigate("/dashboard");
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 3500);
       }
     } catch (error) {
       console.log("Error fetching data:", error);
