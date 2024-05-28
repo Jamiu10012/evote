@@ -16,7 +16,7 @@ import AllPollMain from "./Pages/Election/AllPollMain";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar /> */}
+      {/* <Navbar area/> */}
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
